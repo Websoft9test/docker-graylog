@@ -1,76 +1,37 @@
 {
-  "name": "template",
-  "trademark": "ONLYOFFICE",
-  "installpath": "/data/wwwroot/onlyoffice",
-  "compose_file": "docker-compose-production.yml",
-  "env_file": ".env_all",
+  "name": "graylog",
+  "trademark": "Graylog",
+  "compose_file": "docker-compose.yml",
+  "installpath": "/data/wwwroot/graylog",
+  "env_file": ".env",
+  "fork_url": "https://github.com/Graylog2/graylog-docker",
   "requirements":{
     "cpu_arch": "Linux x86-64, ARM 32/64, Windows x86-64, IBM POWER8, x86/i686",
     "cpu": "2",
     "memory": "4",
     "disk": "20",
     "swap": "2",
-    "url": "https://github.com/onlyoffice/docker#recommended-system-requirements"
+    "url": "https://docs.graylog.org/en/3.3/pages/installation.html#system-requirements"
   },
 
   "user": {
     "username": "admin",
-    "password": "123456"
+    "password": "admin"
   },
+ "command_extra":[
+    {
+      "cmd": "sed -i 's/127.0.0.1/'$(curl api.ipify.org)'/'  .env"
+    }
+  ],
 
   "services":[
     {
-      "name": "onlyoffice-server",
-      "port": "9002",
-      "description_cn": "浏览器访问 ONLYOFFICE",
-      "description_en": "Web-GUI database management tool",
-      "required": "Y"
-    },
-
-    {
-      "name": "phpmyadmin",
-      "port": "9090",
-      "description_cn": "数据库可视化管理工具",
-      "description_en": "Web-GUI database management tool",
+      "name": "graylog",
+      "port": "9001",
+      "description_cn": "浏览器访问 Graylog",
+      "description_en": "Browser access to Graylog Document by http",
       "required": "Y"
     }
-  ],
-
-  "command_comments":[
-    {
-      "comment_cn": ".env文件的SITE_NAME需要修改成公网IP或者域名才能被外网访问",
-      "comment_en": ".env file's [SITE_NAME] should  be changed to public IP or domain name to be accessed by Internet"
-    },
-    {
-      "comment_cn": "默认启动的是ERPNext12，如果您想运行ERPNext13,只需将ERPNEXT_VERSION、FRAPPE_VERSION修改成v13",
-      "comment_en": "The default startup is erpnext12. If you want to run erpnext13, you only need to change ERPNEXT_VERSION/FRAPPE_VERSIO to V13"
-    }
-  ],
-
-  "command_extra":[
-    {
-      "cmd": "echo aaa"
-    },
-    {
-      "cmd": "echo bbb"
-    }
-  ],
-
-  "faqs": [
-    {
-      "question_cn": "问题1",
-      "answer_cn": "答案1",
-      "question_en": "question1",
-      "answer_en": "answer1"
-    },
-
-    {
-      "question_cn": "问题2",
-      "answer_cn": "答案2",
-      "question_en": "question2",
-      "answer_en": "answer2"
-    }
-
   ]
 
 }
