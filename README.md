@@ -67,7 +67,7 @@ We assume that you are already familiar with Docker, and you can modify [docker-
 git clone --depth=1 https://github.com/Websoft9/docker-graylog
 cd docker-graylog
 sed -i 's/127.0.0.1/'$(curl api.ipify.org)'/'  .env  
-docker-compose -f docker-compose.yml  --env-file  .env up -d
+docker-compose  up -d
 ```
 
 ### FAQ

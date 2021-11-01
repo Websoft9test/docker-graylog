@@ -65,13 +65,13 @@ sudo systemctl start docker
 
 #### 安装 Graylog
 
-直接运行下面的命令快速安装应用。如果你熟悉 Docker，建议先修改 [docker-compose](docker-compose-production.yml) 文件以满足自己的需求
+直接运行下面的命令快速安装应用。如果你熟悉 Docker，建议先修改 [docker-compose](docker-compose.yml) 文件以满足自己的需求
 
 ```
 git clone --depth=1 https://github.com/Websoft9/docker-graylog
 cd docker-graylog
 sed -i 's/127.0.0.1/'$(curl api.ipify.org)'/'  .env  
-sudo docker-compose -f docker-compose.yml --env-file .env up -d
+sudo docker-compose up -d
 ```
 
 ### 常见问题
