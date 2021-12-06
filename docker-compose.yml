@@ -31,7 +31,7 @@ services:
           memory: 1g
     restart: always
     volumes: 
-      - elasticsearch/:/usr/share/elasticsearch/data
+      - elasticsearch:/usr/share/elasticsearch/data
   # Graylog: https://hub.docker.com/r/graylog/graylog/
   graylog:
     image: graylog/graylog:${APP_VERSION}
