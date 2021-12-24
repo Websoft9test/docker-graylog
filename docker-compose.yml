@@ -14,7 +14,7 @@ services:
       - ${VOLUMES_PATH_PREFIX}/mongodb:/data/db
   # Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/7.10/docker.html
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.16.0
+    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
     container_name: ${APP_CONTAINER_NAME}-elasticsearch
     environment:
       - http.host=0.0.0.0
