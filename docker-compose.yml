@@ -8,14 +8,14 @@ services:
   # MongoDB: https://hub.docker.com/_/mongo/
   mongo:
     image: mongo:${DB_MONGO_VERSION}
-    container_name: ${APP_CONTAINER_NAME}-mongo
+    container_name: ${APP_NAME}-mongo
     restart: always
     volumes: 
       - ${VOLUMES_PATH_PREFIX}/mongodb:/data/db
   # Elasticsearch: https://www.elastic.co/guide/en/elasticsearch/reference/7.10/docker.html
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
-    container_name: ${APP_CONTAINER_NAME}-elasticsearch
+    container_name: ${APP_NAME}-elasticsearch
     environment:
       - http.host=0.0.0.0
       - transport.host=localhost
@@ -35,7 +35,7 @@ services:
   # Graylog: https://hub.docker.com/r/graylog/graylog/
   graylog:
     image: graylog/graylog:${APP_VERSION}
-    container_name: ${APP_CONTAINER_NAME}
+    container_name: ${APP_NAME}
     environment:
       # CHANGE ME (must be at least 16 characters)!
       - GRAYLOG_PASSWORD_SECRET=somepasswordpepper
@@ -68,4 +68,4 @@ volumes:
   
 networks:
   default:
-      name: ${APP_NETWORK}
+      name: ${APP_NAME}
