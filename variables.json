@@ -18,11 +18,6 @@
     "username": "admin",
     "password": "admin"
   },
- "command_extra":[
-    {
-      "cmd": "sed -i 's/127.0.0.1/'$(curl api.ipify.org)'/'  .env"
-    }
-  ],
 
   "services":[
     {
