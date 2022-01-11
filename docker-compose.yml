@@ -41,6 +41,7 @@ services:
       - GRAYLOG_PASSWORD_SECRET=somepasswordpepper
       # echo -n admin | shasum -a 256, default password is admin
       - GRAYLOG_ROOT_PASSWORD_SHA2=${APP_PASSWORD}
+      - GRAYLOG_HTTP_BIND_ADDRESS=0.0.0.0:9000
       - GRAYLOG_HTTP_EXTERNAL_URI=${APP_SITE_URL}
     entrypoint: /usr/bin/tini -- wait-for-it elasticsearch:9200 --  /docker-entrypoint.sh
     restart: always
