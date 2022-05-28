@@ -2,7 +2,7 @@
   "name": "graylog",
   "trademark": "Graylog",
   "compose_file": "docker-compose.yml",
-  "installpath": "/data/wwwroot/graylog",
+  "installpath": "/data/apps/graylog",
   "env_file": ".env",
   "fork_url": "https://github.com/Graylog2/graylog-docker",
   "requirements":{
@@ -12,21 +12,5 @@
     "disk": "20",
     "swap": "2",
     "url": "https://docs.graylog.org/en/3.3/pages/installation.html#system-requirements"
-  },
-
-  "user": {
-    "username": "admin",
-    "password": "admin"
-  },
-
-  "services":[
-    {
-      "name": "graylog",
-      "port": "9001",
-      "description_cn": "浏览器访问 Graylog",
-      "description_en": "Browser access to Graylog Document by http",
-      "required": "Y"
-    }
-  ]
-
+  }
 }

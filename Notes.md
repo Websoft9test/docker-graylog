@@ -12,6 +12,11 @@ Graylog 有如下几个 URL/URI，它们都是 HTTP API 的设置
 
 以上理解还无法形成通俗易懂的逻辑关系，有待进一步学习
 
-## 如何访问 API？
+## FAQ
+
+#### 如何访问 API？
 
 https://Internet IP:9000/api/api-browser/global/index.html
+
+#### 管理员密码怎么设置？
+运行 echo -n 'admin' | sha256sum | awk '{ print $1 }' 命令，得到密文后传递给容器
